@@ -3,6 +3,7 @@ import axios from 'axios';
 import Header from './Header';
 import CharacterGrid from './CharacterGrid';
 import Search from './Search';
+import Footer from './Footer';
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -30,6 +31,7 @@ function App() {
       <Header />
       <Search searchCharacters={searchCharacters} />
       <CharacterGrid isLoading={isLoading} characters={characters} />
+      <Footer />
     </div>
   );
 }

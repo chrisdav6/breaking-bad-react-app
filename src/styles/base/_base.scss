@@ -34,14 +34,6 @@ a {
   margin: 10px 0;
 }
 
-header {
-  height: 200px;
-}
-
-header img {
-  width: 200px;
-}
-
 .center {
   display: flex;
   align-items: center;
@@ -60,10 +52,4 @@ input[type='text'] {
   border-radius: 5px;
   width: 60%;
   margin: auto;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
 }

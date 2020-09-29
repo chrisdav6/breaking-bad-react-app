@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Header from './Header';
 import axios from 'axios';
+import Header from './Header';
+import CharacterGrid from './CharacterGrid';
+import Card from './Card';
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -21,9 +23,18 @@ function App() {
   return (
     <div className='App container'>
       <Header />
-      {isLoading
-        ? 'Loading...'
-        : characters.map(character => <p>{character.name}</p>)}
+      <CharacterGrid>
+        {isLoading
+          ? 'Loading...'
+          : characters.map(character => (
+              <Card
+                key={character.char_id}
+                name={character.name}
+                nickname={character.nickname}
+                img={character.img}
+              />
+            ))}
+      </CharacterGrid>
     </div>
   );
 }

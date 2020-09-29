@@ -4,6 +4,7 @@ import axios from 'axios';
 
 function App() {
   const [characters, setCharacters] = useState([]);
+  const [isLoading, setIsloading] = useState(true);
 
   useEffect(() => {
     const makeRequest = async () => {
@@ -11,6 +12,7 @@ function App() {
         'https://www.breakingbadapi.com/api/characters'
       );
       setCharacters(request.data);
+      setIsloading(false);
     };
 
     makeRequest();
@@ -19,9 +21,9 @@ function App() {
   return (
     <div className='App container'>
       <Header />
-      {characters.map(character => (
-        <p>{character.name}</p>
-      ))}
+      {isLoading
+        ? 'Loading...'
+        : characters.map(character => <p>{character.name}</p>)}
     </div>
   );
 }

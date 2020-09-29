@@ -8,12 +8,7 @@ const CharacterGrid = ({ isLoading, characters }) => {
   ) : (
     <section className='cards'>
       {characters.map(character => (
-        <Card
-          key={character.char_id}
-          name={character.name}
-          nickname={character.nickname}
-          img={character.img}
-        />
+        <Card key={character.char_id} character={character} />
       ))}
     </section>
   );

@@ -1,20 +1,21 @@
 import React from 'react';
 import Card from './Card';
+import Spinner from '../img/spinner.gif';
 
 const CharacterGrid = ({ isLoading, characters }) => {
-  return (
-    <div className='cards'>
-      {isLoading
-        ? 'Loading...'
-        : characters.map(character => (
-            <Card
-              key={character.char_id}
-              name={character.name}
-              nickname={character.nickname}
-              img={character.img}
-            />
-          ))}
-    </div>
+  return isLoading ? (
+    <img className='spinner' src={Spinner} alt='Spinner' />
+  ) : (
+    <section className='cards'>
+      {characters.map(character => (
+        <Card
+          key={character.char_id}
+          name={character.name}
+          nickname={character.nickname}
+          img={character.img}
+        />
+      ))}
+    </section>
   );
 };
 
